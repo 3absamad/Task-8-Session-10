@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Numerics;
 using System.Text;
 
 namespace Task_8_Session_10
 {
-    internal class Range<T> where T : IComparable<T>
+    internal class Range<T> where T : IComparable<T>, INumber<T>
     {
         public T Min { get; set; }
         public T Max { get; set; }
@@ -24,8 +25,8 @@ namespace Task_8_Session_10
             return value.CompareTo(Min) >=0 && value.CompareTo(Max) <= 0;
         }
 
-        public dynamic Length() {
-            return (dynamic) Max - (dynamic)Min;
+        public T Length() {
+            return Max - Min;
         }
     }
 }
